@@ -10,9 +10,11 @@ const Logo = () => {
   );
 };
 const Icon = styled.div`
+  grid-area: logo;
   font-size: 5rem;
-  flex: 1;
   text-align: center;
+  filter: var(--dropshadow-desktop);
+  /* border: 2px solid black; */
 `;
 
 export default Logo;

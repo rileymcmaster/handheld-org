@@ -8,6 +8,7 @@ export default createGlobalStyle`
       --secondary-colour: #EBE8D3;
       /* dark beige */
       --third-colour: #CFC1AE;
+      --dropshadow-desktop: drop-shadow(2px 4px 1px rgba(0,0,0,.2));
     }
     *,
     *:before,
@@ -22,11 +23,18 @@ export default createGlobalStyle`
     h1, h2, h3, h4, h5, h6, p,
     text {
     }
-    
+
     html {
-        font-size: 100%;
-        scroll-behavior: smooth;
+        font-size: 20px;
+    scroll-behavior: smooth;
     }
+    @media (max-width: 900px) {
+    html { font-size: 15px; }
+    }
+    @media (max-width: 400px) {
+    html { font-size: 12px; }
+    }
+
 
     body {
         font-family: 'Roboto', sans-serif;
@@ -36,6 +44,8 @@ export default createGlobalStyle`
     }
 
     html, body {
+        min-height: 100%;
+        height: 100%;
     }
 
     h1 {
@@ -47,6 +57,11 @@ export default createGlobalStyle`
 
     p, a {
 
+    }
+
+
+    h1, h2, h3, h4, h5, p, a, button {
+        filter: var(--dropshadow-desktop);
     }
 
     html, body, div, span, applet, object, iframe,
@@ -62,7 +77,7 @@ export default createGlobalStyle`
     figure, figcaption, footer, header, hgroup,
     menu, nav, output, ruby, section, summary,
     time, mark, audio, video {
-
+    }
 
     
     /* HTML5 display-role reset for older browsers */

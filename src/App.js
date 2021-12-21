@@ -17,21 +17,32 @@ const App = () => {
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         <Wrapper>
-          <Weather />
+          {/* <Weather /> */}
           <Logo />
           <Calendar />
-          {/* <Draw /> */}
+          <Draw />
         </Wrapper>
-        <ReactQueryDevtools initialIsOpen={false} />
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </>
   );
 };
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  /* max-width: 1200px; */
+  /* min-height: 100vh; */
+  padding: 3rem;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas:
+    "weather logo calendar"
+    "weather draw calendar";
 `;
 
 export default App;
