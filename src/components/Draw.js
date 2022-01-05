@@ -14,7 +14,7 @@ const Draw = () => {
   }, []);
 
   const canvasProps = {
-    brushRadius: 10,
+    brushRadius: 5,
     lazyRadius: 0,
     hideInterface: true,
     hideGrid: true,
@@ -91,9 +91,9 @@ const Wrapper = styled.div`
 `;
 
 const DrawingPad = styled.div`
-  border: 10px groove var(--third-colour);
+  border: 10px ridge var(--third-colour);
 
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🖌</text></svg>") -10
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;transform:rotate(45deg);'><text y='50%'>🖌</text></svg>") -10
       10,
     auto;
 `;

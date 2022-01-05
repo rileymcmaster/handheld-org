@@ -22,16 +22,21 @@ const Container = styled.p`
 
 const DayBubble = styled.span`
   display: flex;
-  font-size: 0.8em;
   justify-content: center;
   align-items: center;
-  height: 2em;
-  width: 2em;
-  margin-right: 0.4em;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-
+  font-size: 1em;
+  margin-right: 1em;
+  border-bottom: 1px solid var(--primary-colour);
   filter: var(--dropshadow-desktop);
+
+  @media (min-width: 768px) {
+    font-size: 0.8em;
+    margin-right: 0.6em;
+    height: 2em;
+    width: 2em;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+  }
 `;
 
 export default WeekForecastEach;
