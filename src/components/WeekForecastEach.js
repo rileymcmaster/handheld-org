@@ -1,17 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 
+import getDayOfWeek from "../utils/getDayOfWeek";
+
 const WeekForecastEach = ({ day }) => {
   const date = day.datetime.split("-")[2];
+
+  const dayOfWeek = getDayOfWeek(day.datetime);
+
   return (
     <Container>
-      <DayBubble>{date}</DayBubble>
+      <DayBubble data-tip={dayOfWeek}>{date}</DayBubble>
       {day.app_min_temp}° / {day.app_max_temp}°
     </Container>
   );
 };
 
-const Container = styled.p`
+const Container = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.9em;

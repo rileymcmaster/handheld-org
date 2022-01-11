@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import AnimateHeight from "react-animate-height";
 
-import useMediaQuery from "../utils/useMediaQuery";
 import ShowMoreButton from "./ShowMoreButton";
 import WeekForecastEach from "./WeekForecastEach";
+import ReactTooltip from "react-tooltip";
 
 const WeatherDisplay = ({ weather, forecast }) => {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
   const [showMore, setShowMore] = useState(false);
 
   const [height, setHeight] = useState(0);
@@ -51,6 +50,7 @@ const WeatherDisplay = ({ weather, forecast }) => {
               {weekForecast.map((day) => (
                 <WeekForecastEach key={day.datetime} day={day} />
               ))}
+              <ReactTooltip effect="solid" type="light" />
             </div>
           </ShowMoreContainer>
         </AnimateHeight>

@@ -11,7 +11,7 @@ import weatherCodes from "../data/weatherCodes";
 const WeatherIcon = ({ data, isDesktop }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [weatherIcon, setWeatherIcon] = useState(null);
-  const { isSuccess, isFetching, data: weather } = data;
+  const { isSuccess, isFetching, isError, data: weather } = data;
 
   useEffect(() => {
     if (isSuccess) {
@@ -34,7 +34,7 @@ const WeatherIcon = ({ data, isDesktop }) => {
   return (
     <Wrapper>
       <CSSTransition
-        in={isFetching}
+        in={isFetching || isError}
         appear={true}
         timeout={1000}
         classNames="fade"

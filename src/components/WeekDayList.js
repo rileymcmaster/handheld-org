@@ -1,6 +1,9 @@
 import React from "react";
 import dayjs from "dayjs";
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
+
+import getDayOfWeek from "../utils/getDayOfWeek";
 
 const WeekDayList = () => {
   const date = new Date();
@@ -9,20 +12,26 @@ const WeekDayList = () => {
 
   for (let i = 1; i <= 7; i++) {
     const first = date.getDate() - date.getDay() + i;
-    const day = new Date(date.setDate(first));
-    const dayFormat = dayjs(day).format("D");
-    week.push(dayFormat);
+    const newDate = new Date(date.setDate(first));
+    const dayOfWeek = getDayOfWeek(newDate);
+    const dateFormat = dayjs(newDate).format("D");
+    week.push({ date: dateFormat, day: dayOfWeek });
   }
 
   return (
     <List>
       {week.map((day) => {
         return (
-          <li key={day} className={day === currentDay ? "active" : undefined}>
-            {day}
+          <li
+            key={day.date}
+            className={day.date === currentDay ? "active" : undefined}
+            data-tip={day.day}
+          >
+            {day.date}
           </li>
         );
       })}
+      <ReactTooltip place="bottom" />
     </List>
   );
 };
@@ -33,7 +42,6 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  /* gap: 0.2em; */
 
   li {
     font-size: 0.5em;
@@ -43,7 +51,7 @@ const List = styled.ul`
     justify-content: center;
     width: 3em;
     height: 3em;
-
+    user-select: none;
     border: 1px solid var(--primary-colour);
     border-radius: 50%;
     filter: var(--dropshadow-desktop);
