@@ -31,13 +31,15 @@ const Nav = styled.nav`
   width: 100%;
   display: flex;
   justify-content: space-around;
-
-  margin-bottom: 1rem;
+  height: 10vh;
+  margin-bottom: 2rem;
   a {
     text-decoration: none;
     width: 100%;
-    padding: 1rem 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
     outline: none;
     color: var(--primary-colour);
     border: 5px solid var(--primary-colour);

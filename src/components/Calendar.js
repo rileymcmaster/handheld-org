@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
 import React from "react";
-import { useQuery } from "react-query";
 import styled from "styled-components";
 
 import WeekDayList from "./WeekDayList";
@@ -34,9 +33,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  margin-top: -3rem;
+  justify-content: flex-start;
+  margin-top: 3rem;
   @media (min-width: 768px) {
     margin-top: 0;
     font-size: 1.2rem;

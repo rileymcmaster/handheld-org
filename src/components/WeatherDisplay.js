@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import AnimateHeight from "react-animate-height";
 
@@ -31,9 +31,7 @@ const WeatherDisplay = ({ weather, forecast }) => {
   };
 
   // TODOS
-  // map icons to weather codes
-  // should feels like be a tooltip?
-  // change city
+  // be able to change city
 
   return (
     <Container>
@@ -75,11 +73,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+  justify-content: flex-start;
+  height: auto;
+  overflow: hidden;
   transition: all 2s;
   animation: ${fadeIn} 2s ease;
-  /* position: absolute; */
   @media (min-width: 768px) {
     justify-content: flex-start;
     min-width: 150px;
@@ -106,24 +104,8 @@ const Container = styled.div`
   }
 `;
 
-const Circle = styled.div`
-  width: 7rem;
-  height: 7rem;
-  background: var(--primary-colour);
-  border-radius: 50%;
-  filter: var(--dropshadow-desktop);
-`;
-
-const dropdown = keyframes`
-from {
-  height: 0%;
-}
-to {
-  height: 50%;
-}
-`;
-
 const ShowMoreContainer = styled.div`
   text-align: center;
+  padding-bottom: 5rem;
 `;
 export default WeatherDisplay;

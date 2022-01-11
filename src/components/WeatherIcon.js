@@ -2,35 +2,39 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import smile from "../assets/smile.jpg";
 import { CSSTransition } from "react-transition-group";
+import ReactTooltip from "react-tooltip";
 
 import RenderIcon from "../utils/renderIcon";
 
 import weatherCodes from "../data/weatherCodes";
 
-const WeatherIcon = ({ loading, icon, weather }) => {
+const WeatherIcon = ({ data, isDesktop }) => {
   const [showIcon, setShowIcon] = useState(false);
   const [weatherIcon, setWeatherIcon] = useState(null);
+  const { isSuccess, isFetching, data: weather } = data;
 
   useEffect(() => {
-    if (weather) {
+    if (isSuccess) {
       const matchWeatherCode = weatherCodes.find(
         (code) => code.code === weather.weather.code
       );
+      // pod will be "d" for day, "n" for night
 
       setWeatherIcon(
         weather.pod === "n"
           ? "moon"
-          : matchWeatherCode
+          : matchWeatherCode.icon
           ? matchWeatherCode.icon
           : "sun"
       );
     }
-  }, [weather]);
+    return () => setShowIcon(false);
+  }, [isSuccess, isFetching, weather, isDesktop]);
 
   return (
     <Wrapper>
       <CSSTransition
-        in={loading}
+        in={isFetching}
         appear={true}
         timeout={1000}
         classNames="fade"
@@ -42,11 +46,15 @@ const WeatherIcon = ({ loading, icon, weather }) => {
 
       <CSSTransition
         in={showIcon}
+        appear={true}
         timeout={1000}
         classNames="fade"
         unmountOnExit
       >
-        <RenderIcon icon={weatherIcon} />
+        <div data-tip={weather?.weather?.description}>
+          <RenderIcon icon={weatherIcon} />
+          <ReactTooltip place="bottom" />
+        </div>
       </CSSTransition>
     </Wrapper>
   );
@@ -55,15 +63,17 @@ const WeatherIcon = ({ loading, icon, weather }) => {
 const Wrapper = styled.div`
   mix-blend-mode: darken;
 
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   margin: auto;
 
-  img {
-    width: 180px;
-    height: 180px;
+  img,
+  svg {
+    width: 160px;
+    height: 160px;
     margin: auto;
   }
+
   .fade-appear {
     opacity: 0;
   }

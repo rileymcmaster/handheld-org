@@ -66,14 +66,14 @@ const Wrapper = styled.div`
   justify-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   height: 100%;
   width: 100%;
   max-width: 420px;
   margin: auto;
-  margin-top: -2rem;
+  margin-top: 1rem;
 
   @media (min-width: 768px) {
     margin: auto;
