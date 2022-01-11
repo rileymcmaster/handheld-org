@@ -22,12 +22,12 @@ const App = () => {
       <GlobalStyles />
       <QueryClientProvider client={queryClient}>
         {isDesktop ? (
-          <Wrapper>
+          <DesktopWrapper>
             <Weather />
             <Logo />
             <Calendar />
             <Draw />
-          </Wrapper>
+          </DesktopWrapper>
         ) : (
           <MobileWrapper>
             <BrowserRouter>
@@ -49,21 +49,27 @@ const App = () => {
   );
 };
 
-const Wrapper = styled.div`
+const DesktopWrapper = styled.div`
   height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 2fr 1fr;
+  width: auto;
+  align-self: center;
+  grid-template-columns: repeat(3, calc(100 / 3 + "%"));
+  grid-template-rows: 1fr 2fr;
   grid-template-areas:
     "weather logo calendar"
     "weather draw calendar";
-  padding: 3rem;
+  padding: 2rem;
+  @media (min-width: 1000px) {
+    padding: 3rem;
+  }
 `;
 
 const MobileWrapper = styled.div`
-  height: 100vh;
+  height: 90vh;
 `;
 const MobileContainer = styled.div`
-  padding: 2rem;
+  padding: 1rem;
+  height: 100%;
 `;
 export default App;

@@ -26,24 +26,49 @@ const Calendar = () => {
 
 const Wrapper = styled.div`
   grid-area: calendar;
-  /* flex: 1; */
   text-align: center;
+  justify-self: center;
+
   font-size: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: -3rem;
+  @media (min-width: 768px) {
+    margin-top: 0;
+    font-size: 1.2rem;
+    align-items: flex-end;
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const DateContainer = styled.div`
   margin-top: 1em;
-  text-align: right;
+
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: right;
+  }
 
   h3 {
     font-size: 2em;
-    margin-bottom: 0.3em;
   }
   p {
+    margin-top: 1em;
+    @media (min-width: 768px) {
+      margin-top: 0.3em;
+    }
     font-size: 1em;
   }
   p ~ p {
-    margin-top: 0.2em;
   }
 `;
 export default Calendar;

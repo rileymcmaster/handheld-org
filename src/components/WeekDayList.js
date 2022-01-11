@@ -33,7 +33,7 @@ const List = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  gap: 0.2em;
+  /* gap: 0.2em; */
 
   li {
     font-size: 0.5em;
