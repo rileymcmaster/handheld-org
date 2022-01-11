@@ -45,7 +45,7 @@ const WeatherIcon = ({ data, isDesktop }) => {
       </CSSTransition>
 
       <CSSTransition
-        in={showIcon}
+        in={showIcon && !isFetching}
         appear={true}
         timeout={1000}
         classNames="fade"

@@ -11,7 +11,7 @@ const Weather = () => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const weather = useQuery("weather", fetchWeather, {
-    staleTime: 10000,
+    // staleTime: 10000,
     // enabled: false,
   });
 
