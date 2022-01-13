@@ -1,15 +1,12 @@
 import React from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
-import useMediaQuery from "../utils/useMediaQuery";
 
 import { fetchWeather, fetchForecast } from "../utils/fetchWeather";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherIcon from "./WeatherIcon";
 
 const Weather = () => {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
-
   const weather = useQuery("weather", fetchWeather, {
     // staleTime: 10000,
     // enabled: false,
@@ -22,7 +19,7 @@ const Weather = () => {
 
   return (
     <Wrapper>
-      <WeatherIcon isDesktop={isDesktop} data={weather} />
+      <WeatherIcon data={weather} />
       {weather.isSuccess && forecast.isSuccess && (
         <WeatherDisplay weather={weather.data} forecast={forecast.data.data} />
       )}

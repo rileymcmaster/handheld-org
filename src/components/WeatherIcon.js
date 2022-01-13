@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import smile from "../assets/smile.jpg";
 import { CSSTransition } from "react-transition-group";
 import ReactTooltip from "react-tooltip";
-
+import useMediaQuery from "../utils/useMediaQuery";
 import RenderIcon from "../utils/renderIcon";
 
+import smile from "../assets/smile1.png";
 import weatherCodes from "../data/weatherCodes";
 
-const WeatherIcon = ({ data, isDesktop }) => {
+const WeatherIcon = ({ data }) => {
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const [showIcon, setShowIcon] = useState(false);
   const [weatherIcon, setWeatherIcon] = useState(null);
   const { isSuccess, isFetching, isError, data: weather } = data;
@@ -51,27 +52,37 @@ const WeatherIcon = ({ data, isDesktop }) => {
         classNames="fade"
         unmountOnExit
       >
-        <div data-tip={weather?.weather?.description}>
-          <RenderIcon icon={weatherIcon} />
+        <>
+          <div data-tip={weather?.weather?.description}>
+            <RenderIcon icon={weatherIcon} />
+          </div>
           <ReactTooltip place="bottom" />
-        </div>
+        </>
       </CSSTransition>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  mix-blend-mode: darken;
-
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  height: 20vh;
   margin: auto;
-
+  position: relative;
   img,
   svg {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     margin: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    filter: var(--dropshadow-desktop);
+
+    @media (min-width: 768px) {
+      width: 160px;
+      height: 160px;
+    }
   }
 
   .fade-appear {

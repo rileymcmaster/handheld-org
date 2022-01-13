@@ -70,6 +70,5 @@ const MobileWrapper = styled.div`
 `;
 const MobileContainer = styled.div`
   padding: 0 1rem;
-  height: 100%;
 `;
 export default App;
