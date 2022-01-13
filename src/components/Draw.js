@@ -33,7 +33,6 @@ const Draw = () => {
     lazyRadius: 5,
     canvasWidth: canvasSize,
     canvasHeight: canvasSize,
-    hideInterface: true,
     hideGrid: true,
     brushColor: "rgba(50,50,50,.9)",
   };
@@ -120,7 +119,7 @@ const Wrapper = styled.div`
 const DrawingPad = styled.div`
   border: 10px ridge var(--third-colour);
   margin: 0 20px;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;transform:rotate(45deg);'><text y='50%'>🖌</text></svg>") -10
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;transform:rotate(45deg);'><text y='50%'>🖌</text></svg>") -100
       10,
     auto;
 `;
