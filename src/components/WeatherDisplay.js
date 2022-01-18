@@ -4,7 +4,6 @@ import AnimateHeight from "react-animate-height";
 
 import ShowMoreButton from "./ShowMoreButton";
 import WeekForecastEach from "./WeekForecastEach";
-import ReactTooltip from "react-tooltip";
 
 const WeatherDisplay = ({ weather, forecast }) => {
   const [showMore, setShowMore] = useState(false);
@@ -50,7 +49,6 @@ const WeatherDisplay = ({ weather, forecast }) => {
               {weekForecast.map((day) => (
                 <WeekForecastEach key={day.datetime} day={day} />
               ))}
-              <ReactTooltip effect="solid" type="light" />
             </div>
           </ShowMoreContainer>
         </AnimateHeight>

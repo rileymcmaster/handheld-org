@@ -1,4 +1,5 @@
 import React from "react";
+import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
 import getDayOfWeek from "../utils/getDayOfWeek";
@@ -9,10 +10,15 @@ const WeekForecastEach = ({ day }) => {
   const dayOfWeek = getDayOfWeek(day.datetime);
 
   return (
-    <Container>
-      <DayBubble data-tip={dayOfWeek}>{date}</DayBubble>
-      {day.app_min_temp}° / {day.app_max_temp}°
-    </Container>
+    <>
+      <Container>
+        <DayBubble data-tip={dayOfWeek} data-for={dayOfWeek}>
+          {date}
+        </DayBubble>
+        {day.app_min_temp}° / {day.app_max_temp}°
+      </Container>
+      <ReactTooltip id={dayOfWeek} effect="solid" type="dark" place="bottom" />
+    </>
   );
 };
 
@@ -33,6 +39,7 @@ const DayBubble = styled.span`
   margin-right: 1em;
   border-bottom: 1px solid var(--primary-colour);
   filter: var(--dropshadow-desktop);
+  user-select: none;
 
   @media (min-width: 768px) {
     font-size: 0.8em;

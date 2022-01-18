@@ -1,4 +1,5 @@
 import React from "react";
+
 import { FaRegHandshake } from "react-icons/fa";
 import styled from "styled-components";
 
@@ -14,7 +15,6 @@ const Icon = styled.div`
   font-size: 5rem;
   text-align: center;
   filter: var(--dropshadow-desktop);
-  /* border: 2px solid black; */
 `;
 
 export default Logo;

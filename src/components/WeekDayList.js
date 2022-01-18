@@ -22,16 +22,23 @@ const WeekDayList = () => {
     <List>
       {week.map((day) => {
         return (
-          <li
-            key={day.date}
-            className={day.date === currentDay ? "active" : undefined}
-            data-tip={day.day}
-          >
-            {day.date}
-          </li>
+          <React.Fragment key={day.date}>
+            <li
+              className={day.date === currentDay ? "active" : undefined}
+              data-tip={day.day}
+              data-for={day.day}
+            >
+              {day.date}
+            </li>
+            <ReactTooltip
+              id={day.day}
+              place="bottom"
+              effect="solid"
+              type="dark"
+            />
+          </React.Fragment>
         );
       })}
-      <ReactTooltip place="bottom" />
     </List>
   );
 };
