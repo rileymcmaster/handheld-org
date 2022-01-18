@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <Nav>
       <NavLink
-        to={"/weather"}
+        to={"/"}
         className={({ isActive }) => (isActive ? "selected" : "")}
       >
         Weather

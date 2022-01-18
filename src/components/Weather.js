@@ -8,13 +8,11 @@ import WeatherIcon from "./WeatherIcon";
 
 const Weather = () => {
   const weather = useQuery("weather", fetchWeather, {
-    // staleTime: 10000,
-    // enabled: false,
+    staleTime: 10000,
   });
 
   const forecast = useQuery("forecast", fetchForecast, {
     staleTime: 10000,
-    // enabled: false,
   });
 
   return (
@@ -32,6 +30,7 @@ const Wrapper = styled.div`
     min-width: 20vw;
     width: calc(100 / 3) vw;
     grid-area: weather;
+    justify-self: flex-start;
     justify-content: center;
     align-items: flex-start;
   }

@@ -1,10 +1,11 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
 import styled from "styled-components";
 
 import Calendar from "./components/Calendar";
+import DeadPixel from "./components/DeadPixel";
 import Draw from "./components/Draw";
 import Logo from "./components/Logo";
 import Navbar from "./components/Navbar";
@@ -20,6 +21,7 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
+      <DeadPixel />
       <QueryClientProvider client={queryClient}>
         {isDesktop ? (
           <DesktopWrapper>
@@ -34,8 +36,7 @@ const App = () => {
               <Navbar />
               <MobileContainer>
                 <Routes>
-                  <Route path="/" element={<Logo />} />
-                  <Route path="/weather" element={<Weather />} />
+                  <Route path="/" element={<Weather />} />
                   <Route path="/calendar" element={<Calendar />} />
                   <Route path="/draw" element={<Draw />} />
                 </Routes>

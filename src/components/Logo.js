@@ -1,5 +1,4 @@
 import React from "react";
-
 import { FaRegHandshake } from "react-icons/fa";
 import styled from "styled-components";
 
