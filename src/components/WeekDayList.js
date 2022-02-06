@@ -3,20 +3,12 @@ import dayjs from "dayjs";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
-import getDayOfWeek from "../utils/getDayOfWeek";
+import { generateWeekArray } from "../utils/getDayOfWeek";
 
 const WeekDayList = () => {
   const date = new Date();
   const currentDay = dayjs(date).format("D");
-  const week = [];
-
-  for (let i = 1; i <= 7; i++) {
-    const first = date.getDate() - date.getDay() + i;
-    const newDate = new Date(date.setDate(first));
-    const dayOfWeek = getDayOfWeek(newDate);
-    const dateFormat = dayjs(newDate).format("D");
-    week.push({ date: dateFormat, day: dayOfWeek });
-  }
+  const week = generateWeekArray(date);
 
   return (
     <List>

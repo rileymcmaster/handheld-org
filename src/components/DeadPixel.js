@@ -21,7 +21,7 @@ const Pixel = styled.div`
   width: 2px;
   height: 2px;
   background: var(--primary-colour);
-  position: fixed;
+  position: absolute;
   z-index: 99999;
 `;
 export default DeadPixel;
