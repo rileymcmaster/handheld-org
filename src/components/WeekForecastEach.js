@@ -2,7 +2,7 @@ import React from "react";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
-import { getDayOfWeek } from "../utils/getDayOfWeek";
+import { getDayOfWeek } from "../utils/calendarHelpers";
 
 const WeekForecastEach = ({ day }) => {
   const date = day.datetime.split("-")[2];
