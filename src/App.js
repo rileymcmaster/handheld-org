@@ -54,7 +54,6 @@ const DesktopWrapper = styled.div`
   height: 100vh;
   display: grid;
   width: auto;
-  overflow: hidden;
   align-self: center;
   grid-template-columns: repeat(3, calc(100 / 3 + "%"));
   grid-template-rows: 1fr 2fr;
