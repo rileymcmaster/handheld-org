@@ -13,7 +13,6 @@ const Draw = () => {
 
   useEffect(() => {
     randomWord.refetch();
-
     const defineCanvasSize = () => {
       const finalSize =
         window.innerWidth <= 768
@@ -46,7 +45,7 @@ const Draw = () => {
     <Wrapper ref={wrapperRef}>
       <p>Draw this:</p>
       <div className="row">
-        <h2>{randomWord.data?.[0]} </h2>
+        <h2>{!randomWord.isError ? randomWord.data?.[0] : "dog"} </h2>
         <button onClick={handleClick}>
           <IoMdRefresh size={"1.5rem"} />
         </button>
@@ -73,6 +72,10 @@ const Wrapper = styled.div`
   max-width: 420px;
   margin: auto;
   margin-top: 1rem;
+
+  h2 {
+    height: 2rem;
+  }
 
   @media (min-width: 768px) {
     margin: auto;
