@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const randomNumber = (max) => {
-  return Math.floor(Math.random() * max + 1);
+  return Math.floor(Math.random() * max);
 };
 
 const DeadPixel = () => {
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    const top = randomNumber(window.innerWidth);
-    const left = randomNumber(window.innerHeight);
+    const top = randomNumber(window.innerHeight);
+    const left = randomNumber(window.innerWidth);
     setPosition({ top, left });
   }, []);
 
