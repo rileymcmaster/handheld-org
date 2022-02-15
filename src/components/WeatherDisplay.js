@@ -103,5 +103,8 @@ const Container = styled.div`
 const ShowMoreContainer = styled.div`
   text-align: center;
   padding-bottom: 5rem;
+  @media (min-width: 768px) {
+    padding-bottom: 0;
+  }
 `;
 export default WeatherDisplay;

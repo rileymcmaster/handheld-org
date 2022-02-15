@@ -44,7 +44,7 @@ const App = () => {
             </BrowserRouter>
           </MobileWrapper>
         )}
-        <ReactQueryDevtools initialIsOpen={true} />
+        {/* <ReactQueryDevtools initialIsOpen={true} /> */}
       </QueryClientProvider>
     </>
   );

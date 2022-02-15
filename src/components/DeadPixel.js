@@ -9,9 +9,19 @@ const DeadPixel = () => {
   const [position, setPosition] = useState({ top: 0, left: 0 });
 
   useEffect(() => {
-    const top = randomNumber(window.innerHeight);
-    const left = randomNumber(window.innerWidth);
-    setPosition({ top, left });
+    const placePixel = () => {
+      const top = randomNumber(window.innerHeight);
+      const left = randomNumber(window.innerWidth);
+      setPosition({ top, left });
+    };
+
+    const handleResize = () => {
+      placePixel();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return <Pixel style={position}></Pixel>;
