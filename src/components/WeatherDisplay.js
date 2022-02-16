@@ -20,7 +20,7 @@ const WeatherDisplay = ({ weather, forecast }) => {
     sunset,
   } = weather;
 
-  const { high_temp: highTemp, low_temp: lowTemp } = forecast[0];
+  const { max_temp: highTemp, min_temp: lowTemp } = forecast[0];
 
   const weekForecast = forecast.filter((day, index) => index > 0 && index <= 5);
   const handleClick = () => {
