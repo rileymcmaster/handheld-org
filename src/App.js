@@ -1,10 +1,10 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
-import Calendar from "./components/Calendar";
+import Calendar from "./components/Calendar/Calendar";
 import DeadPixel from "./components/DeadPixel";
 import Draw from "./components/Draw";
 import Logo from "./components/Logo";
@@ -44,7 +44,7 @@ const App = () => {
             </BrowserRouter>
           </MobileWrapper>
         )}
-        {/* <ReactQueryDevtools initialIsOpen={true} /> */}
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </>
   );

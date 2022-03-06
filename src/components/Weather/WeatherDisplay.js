@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import AnimateHeight from "react-animate-height";
 
-import ShowMoreButton from "./ShowMoreButton";
+import ShowMoreButton from "../ShowMoreButton";
 import WeekForecastEach from "./WeekForecastEach";
 
 const WeatherDisplay = ({ weather, forecast }) => {
@@ -23,6 +23,7 @@ const WeatherDisplay = ({ weather, forecast }) => {
   const { max_temp: highTemp, min_temp: lowTemp } = forecast[0];
 
   const weekForecast = forecast.filter((day, index) => index > 0 && index <= 5);
+
   const handleClick = () => {
     toggleShowMore();
     setShowMore(!showMore);
@@ -58,12 +59,12 @@ const WeatherDisplay = ({ weather, forecast }) => {
 };
 
 const fadeIn = keyframes`
-from {
-  opacity: 0
-}
-to {
-  opacity: 1;
-}
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1;
+  }
 `;
 
 const Container = styled.div`

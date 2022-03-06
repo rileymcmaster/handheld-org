@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import styled from "styled-components";
 import ReactTooltip from "react-tooltip";
 
-import { generateWeekArray } from "../utils/calendarHelpers";
+import { generateWeekArray } from "../../utils/calendarHelpers";
 
 const WeekDayList = () => {
   const date = new Date();

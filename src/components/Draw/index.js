@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
-import { fetchWord } from "../utils/fetchWord";
+import { fetchWord } from "../../utils/fetchWord";
 import { IoMdRefresh } from "react-icons/io";
 import CanvasDraw from "react-canvas-draw";
 

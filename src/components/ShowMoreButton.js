@@ -8,7 +8,6 @@ const ShowMoreButton = ({ handleClick, showMore }) => {
 const StyledBtn = styled.button`
   font-size: 1.8em;
   margin: 1em 0;
-  /* margin-top: em; */
   height: 1em;
   width: 1em;
   display: flex;

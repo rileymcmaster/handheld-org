@@ -2,7 +2,8 @@ import daysOfWeek from "../data/daysOfWeek";
 import dayjs from "dayjs";
 
 export const getDayOfWeek = (date) => {
-  const indexDayOfWeek = new Date(date).getDay();
+  const dateFormatted = date.toString().split("-").join("/");
+  const indexDayOfWeek = new Date(dateFormatted).getDay();
   const dayOfWeek = daysOfWeek[indexDayOfWeek];
   return dayOfWeek;
 };

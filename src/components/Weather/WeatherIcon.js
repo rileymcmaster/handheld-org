@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { CSSTransition } from "react-transition-group";
 import ReactTooltip from "react-tooltip";
-import useMediaQuery from "../utils/useMediaQuery";
-import RenderIcon from "../utils/renderIcon";
+import useMediaQuery from "../../utils/useMediaQuery";
+import RenderIcon from "../../utils/renderIcon";
+import "../Transition/transition.css";
 
-import smile from "../assets/smile1.png";
-import weatherCodes from "../data/weatherCodes";
+import smile from "../../assets/smile1.png";
+import weatherCodes from "../../data/weatherCodes";
+import Transition from "../Transition";
 
 const WeatherIcon = ({ data }) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -20,7 +21,6 @@ const WeatherIcon = ({ data }) => {
         (code) => code.code === weather.weather.code
       );
       // pod will be "d" for day, "n" for night
-
       setWeatherIcon(
         weather.pod === "n"
           ? "moon"
@@ -34,80 +34,46 @@ const WeatherIcon = ({ data }) => {
 
   return (
     <Wrapper>
-      <CSSTransition
-        in={isFetching || isError}
-        appear={true}
-        timeout={1000}
-        classNames="fade"
-        unmountOnExit
+      <Transition
+        show={isFetching || isError}
         onExited={() => setShowIcon(true)}
       >
         <img src={smile} alt="" />
-      </CSSTransition>
+      </Transition>
 
-      <CSSTransition
-        in={showIcon && !isFetching}
-        appear={true}
-        timeout={1000}
-        classNames="fade"
-        unmountOnExit
-      >
-        <>
-          <div data-tip={weather?.weather?.description}>
-            <RenderIcon icon={weatherIcon} />
-          </div>
-          <ReactTooltip place="bottom" />
-        </>
-      </CSSTransition>
+      <Transition show={showIcon && !isFetching}>
+        <div data-tip={weather?.weather?.description}>
+          <RenderIcon icon={weatherIcon} />
+          <ReactTooltip type="dark" place="bottom" effect="solid" />
+        </div>
+      </Transition>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  width: 100%;
+  /* width: 100%; */
   height: 20vh;
   margin: auto;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    position: absolute;
+  }
+
   img,
   svg {
     width: 120px;
     height: 120px;
-    margin: auto;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     filter: var(--dropshadow-desktop);
 
     @media (min-width: 768px) {
       width: 160px;
       height: 160px;
     }
-  }
-
-  .fade-appear {
-    opacity: 0;
-  }
-  .fade-appear.fade-appear-active {
-    opacity: 1;
-    transition: opacity 1s;
-  }
-  .fade-enter {
-    opacity: 0;
-  }
-  .fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: all 1s;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: all 1s;
-  }
-  .fade-exit-done {
-    opacity: 0;
   }
 `;
 

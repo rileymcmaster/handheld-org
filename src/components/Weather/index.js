@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import styled from "styled-components";
 
-import { fetchWeather, fetchForecast } from "../utils/fetchWeather";
+import { fetchWeather, fetchForecast } from "../../utils/fetchWeather";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherIcon from "./WeatherIcon";
 

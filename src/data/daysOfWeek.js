@@ -6,6 +6,7 @@ const daysOfWeek = [
   "Thursday",
   "Friday",
   "Saturday",
+  "Sunday",
 ];
 
 export default daysOfWeek;

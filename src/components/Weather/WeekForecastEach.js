@@ -2,13 +2,11 @@ import React from "react";
 import ReactTooltip from "react-tooltip";
 import styled from "styled-components";
 
-import { getDayOfWeek } from "../utils/calendarHelpers";
+import { getDayOfWeek } from "../../utils/calendarHelpers";
 
 const WeekForecastEach = ({ day }) => {
   const date = day.datetime.split("-")[2];
-
   const dayOfWeek = getDayOfWeek(day.datetime);
-
   return (
     <>
       <Container>
