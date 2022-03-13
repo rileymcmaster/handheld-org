@@ -11,7 +11,7 @@ const Calendar = () => {
 
   return (
     <Wrapper>
-      <WeekDayList />
+      <WeekDayList date={date} />
       <DateContainer>
         <h3>{currentDay}</h3>
         <p>
@@ -49,7 +49,6 @@ const Wrapper = styled.div`
 
 const DateContainer = styled.div`
   margin-top: 1em;
-
   text-align: center;
 
   @media (min-width: 768px) {

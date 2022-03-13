@@ -5,10 +5,9 @@ import ReactTooltip from "react-tooltip";
 
 import { generateWeekArray } from "../../utils/calendarHelpers";
 
-const WeekDayList = () => {
-  const date = new Date();
+const WeekDayList = ({ date }) => {
   const currentDay = dayjs(date).format("D");
-  const week = generateWeekArray(date);
+  const week = generateWeekArray();
 
   return (
     <List>

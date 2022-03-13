@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import AnimateHeight from "react-animate-height";
 
-import ShowMoreButton from "../ShowMoreButton";
+import ShowMoreButton from "./ShowMoreButton";
 import WeekForecastEach from "./WeekForecastEach";
 
 const WeatherDisplay = ({ weather, forecast }) => {
