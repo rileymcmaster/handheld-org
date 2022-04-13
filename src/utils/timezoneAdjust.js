@@ -1,3 +1,26 @@
+export const updateWeatherForTimezone = (weather) => {
+  const { sunrise, sunset } = weather;
+
+  if (!sunrise || !sunset) return undefined;
+
+  const sunriseAdjusted = adjustTimeForTimezone(sunrise);
+  const sunsetAdjusted = adjustTimeForTimezone(sunset);
+
+  return { ...weather, sunrise: sunriseAdjusted, sunset: sunsetAdjusted };
+};
+
+export const adjustTimeForTimezone = (time) => {
+  if (!time) return undefined;
+
+  const timezoneOffsetMins = +new Date().getTimezoneOffset() / 60;
+  const timeSplit = time.split(":");
+  //update only the hour
+  timeSplit[0] = timeSplit[0] - timezoneOffsetMins;
+  const adjustedTimeJoined = timeSplit.join("");
+  const adj5 = addColon(adjustedTimeJoined);
+  return adj5;
+};
+
 export const addColon = (time) => {
   const str = time.toString();
   switch (str.length) {
@@ -8,18 +31,4 @@ export const addColon = (time) => {
     default:
       return str;
   }
-};
-
-export const timezoneAdjust = (weather) => {
-  const { sunrise, sunset, UTC } = weather;
-
-  if (!sunrise || !sunset || !UTC) {
-    return undefined;
-  }
-  const sunriseFormat = +sunrise.split(":").join("");
-  const sunsetFormat = +sunset.split(":").join("");
-  const sunriseAdjusted = addColon(sunriseFormat + UTC);
-  const sunsetAdjusted = addColon(sunsetFormat + UTC);
-
-  return { ...weather, sunrise: sunriseAdjusted, sunset: sunsetAdjusted };
 };

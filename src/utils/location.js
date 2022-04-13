@@ -1,9 +1,9 @@
 export const getPosition = async () => {
   try {
-    const pos = await new Promise((resolve, reject) => {
+    const position = await new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
-    const { latitude, longitude } = pos.coords;
+    const { latitude, longitude } = position.coords;
     return { latitude, longitude };
   } catch (e) {
     // default to Montreal, because I live here
