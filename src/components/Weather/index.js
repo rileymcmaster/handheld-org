@@ -27,10 +27,8 @@ const Weather = () => {
 
 const Wrapper = styled.div`
   @media (min-width: 768px) {
-    min-width: 20vw;
     width: calc(100 / 3) vw;
     grid-area: weather;
-    justify-self: flex-start;
     justify-content: center;
     align-items: flex-start;
   }
