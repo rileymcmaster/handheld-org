@@ -52,7 +52,6 @@ const WeatherIcon = ({ data }) => {
 };
 
 const Wrapper = styled.div`
-  /* width: 100%; */
   height: 20vh;
   margin: auto;
   position: relative;
