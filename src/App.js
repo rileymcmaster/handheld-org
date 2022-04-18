@@ -55,7 +55,7 @@ const DesktopWrapper = styled.div`
   display: grid;
   width: auto;
   align-self: center;
-  grid-template-columns: repeat(3, calc(100 / 3 + "%"));
+  grid-template-columns: repeat(3, 33%);
   grid-template-rows: 1fr 2fr;
   grid-template-areas:
     "weather logo calendar"
