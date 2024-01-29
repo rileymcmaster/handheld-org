@@ -8,7 +8,7 @@ export const fetchWeather = async () => {
       `${process.env.REACT_APP_WEATHERBIT_WEATHER_URL}?lat=${location.latitude}&lon=${location.longitude}&key=${process.env.REACT_APP_WEATHERBIT_API_KEY}`
     );
     const resultData = await result.json();
-
+      
     //updates the sunrise and sunset times for local GMT offset
     const weatherResult = updateWeatherForTimezone(resultData.data[0]);
     return weatherResult;

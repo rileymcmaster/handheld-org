@@ -31,7 +31,8 @@ const WeatherIcon = ({ data }) => {
     }
     return () => setShowIcon(false);
   }, [isSuccess, isFetching, weather, isDesktop]);
-
+  
+  
   return (
     <Wrapper>
       <Transition

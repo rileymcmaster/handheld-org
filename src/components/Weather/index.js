@@ -7,6 +7,7 @@ import WeatherDisplay from "./WeatherDisplay";
 import WeatherIcon from "./WeatherIcon";
 
 const Weather = () => {
+
   const weather = useQuery("weather", fetchWeather, {
     staleTime: 10000,
   });
