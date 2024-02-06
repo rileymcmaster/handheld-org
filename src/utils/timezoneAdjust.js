@@ -5,7 +5,6 @@ export const updateWeatherForTimezone = (weather) => {
 
   const sunriseAdjusted = adjustTimeForTimezone(sunrise);
   const sunsetAdjusted = adjustTimeForTimezone(sunset);
-
   return { ...weather, sunrise: sunriseAdjusted, sunset: sunsetAdjusted };
 };
 
@@ -13,8 +12,7 @@ export const adjustTimeForTimezone = (time) => {
   if (!time) return undefined;
 
   const timezoneOffsetMins = +new Date().getTimezoneOffset() / 60;
-  // const timeSplit = time.split(":");
-  const timeSplit = [time];
+  const timeSplit = time.split(":");
   
   //update only the hour
   timeSplit[0] = timeSplit[0] - timezoneOffsetMins;
