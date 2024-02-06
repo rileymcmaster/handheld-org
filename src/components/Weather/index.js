@@ -10,10 +10,12 @@ const Weather = () => {
 
   const weather = useQuery("weather", fetchWeather, {
     staleTime: 10000,
+    refetchOnWindowFocus: false,
   });
 
   const forecast = useQuery("forecast", fetchForecast, {
     staleTime: 10000,
+    refetchOnWindowFocus: false,
   });
 
   return (
