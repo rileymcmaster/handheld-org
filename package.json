@@ -1,50 +1,49 @@
 {
-  "name": "handheld-org",
-  "homepage": ".",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "dayjs": "^1.10.7",
-    "react": "^17.0.2",
-    "react-animate-height": "^2.0.23",
-    "react-canvas-draw": "^1.2.1",
-    "react-dom": "^17.0.2",
-    "react-icons": "^4.3.1",
-    "react-query": "^3.34.5",
-    "react-query-devtools": "^2.6.3",
-    "react-router": "^6.2.1",
-    "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "react-tooltip": "^4.2.21",
-    "react-transition-group": "^4.4.2",
-    "styled-components": "^5.3.3",
-    "web-vitals": "^2.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+	"name": "handheld-org",
+	"homepage": ".",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.14.1",
+		"@testing-library/react": "^12.0.0",
+		"@testing-library/user-event": "^13.2.1",
+		"dayjs": "^1.10.7",
+		"react": "^17.0.2",
+		"react-animate-height": "^2.0.23",
+		"react-canvas-draw": "^1.2.1",
+		"react-dom": "^17.0.2",
+		"react-icons": "^4.3.1",
+		"react-query": "^3.34.5",
+		"react-router": "^6.2.1",
+		"react-router-dom": "^6.2.1",
+		"react-scripts": "5.0.0",
+		"react-tooltip": "^4.2.21",
+		"react-transition-group": "^4.4.2",
+		"styled-components": "^5.3.3",
+		"web-vitals": "^2.1.0"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
 }
