@@ -8,6 +8,8 @@ export default createGlobalStyle`
       --secondary-colour: #EBE8D3;
       /* dark beige */
       --third-colour: #CFC1AE;
+      --hover-colour: #677454ff;
+      --background-colour: #ebe8d3ff;
       --dropshadow-desktop: drop-shadow(2px 4px 1px rgba(0,0,0,.2));
     }
     *,
@@ -35,11 +37,18 @@ export default createGlobalStyle`
     html { font-size: 15px; }
     }
 
+    a {
+        transition: color .2s ease;
+    }
+    a:hover, a:focus-visible {
+        color: var(--hover-colour);
+    }
+
 
     body {
         font-family: 'Roboto', sans-serif;
         color: var(--primary-colour);
-        background: rgb(235,232,211);
+        background: var(--background-colour);
         background: radial-gradient(circle, rgba(235,232,211,.5) 15%, rgba(207,193,174,.5) 81%);
     }
 
@@ -98,5 +107,5 @@ export default createGlobalStyle`
         content: '';
         content: none;
     }
- 
+
 `;

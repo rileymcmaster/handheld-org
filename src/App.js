@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
+import "./styles/all.scss";
 
 import Calendar from "./components/Calendar/Calendar";
 import DeadPixel from "./components/DeadPixel";
@@ -12,6 +13,7 @@ import Navbar from "./components/Navbar";
 import Weather from "./components/Weather";
 import GlobalStyles from "./GlobalStyles";
 import useMediaQuery from "./utils/useMediaQuery";
+import SaleList from "./components/Sale/SaleList";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +31,7 @@ const App = () => {
 						<Logo />
 						<Calendar />
 						<Draw />
+						<SaleList />
 					</DesktopWrapper>
 				) : (
 					<MobileWrapper>
@@ -59,7 +62,7 @@ const DesktopWrapper = styled.div`
 	grid-template-rows: 1fr 2fr;
 	grid-template-areas:
 		"weather logo calendar"
-		"weather draw calendar";
+		"weather draw sale";
 	padding: 2rem;
 	@media (min-width: 1000px) {
 		padding: 3rem;
